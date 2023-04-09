@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "3f21b786-9ce3-4d7a-893e-9aff7ff58460",
+		"name": "Rest API NODE JS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "description",
+							"value": "Welcome to rkram blog....let learn day by day",
+							"type": "default"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/rkram/OneDrive/Pictures/Screenshots/Screenshot (3).png"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/post",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Post",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/post/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"post",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Post",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY0MTkyMjIzYjZiOTgxYWM5MDRhZjkwMCJ9.YVsDw-tilCRzj-oxKhJvW_3YMKqBRc4VuXNGsdqQ81o",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/post/641fe7380f07e954d86f92c2",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"post",
+						"641fe7380f07e954d86f92c2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Post Update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Welcome to rkram blog!  let learn day by day!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/post/{{currentPostID}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"post",
+						"{{currentPostID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Post",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY0MTkyMjIzYjZiOTgxYWM5MDRhZjkwMCJ9.YVsDw-tilCRzj-oxKhJvW_3YMKqBRc4VuXNGsdqQ81o",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/post/63e7cabf72f2b378f03968ab",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"post",
+						"63e7cabf72f2b378f03968ab"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User SIGNUP Auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Vinoth\",\r\n    \"email\": \"sv@mail.com\",\r\n    \"password\": \"admin@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User LOGIN Auth",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"yv@mail.com\",\r\n    \"password\": \"admin@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/auth/me",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Follow ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY0Mjk0YWIwMzQ2Y2JiNzgzYjAyZDE4NCJ9.rMEvBysPEzo8KB3rrUd5vNRoWrN4fl41jviLM71E2dk",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/follow/64294a8f346cbb783b02d181",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"follow",
+						"64294a8f346cbb783b02d181"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
